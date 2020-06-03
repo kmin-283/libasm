@@ -1,8 +1,8 @@
 section		.text
 
-global		ft_strlen
+global		_ft_strlen
 
-ft_strlen:
+_ft_strlen:
 	mov		rax, rdi			;copy first argument to return val 
 
 comparison:

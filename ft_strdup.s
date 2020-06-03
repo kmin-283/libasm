@@ -1,10 +1,10 @@
 section     .text
 
-extern      malloc
+extern      _malloc
 
-global      ft_strdup
+global      _ft_strdup
 
-ft_strdup:
+_ft_strdup:
     xor     rax, rax
     cmp     rdi, 0
     je      null
@@ -19,7 +19,7 @@ allocation:
     push    rdi
     inc     rax
     mov     rdi, rax
-    call    malloc
+    call    _malloc
     cmp     rax, 0
     je      null
     pop     rdi

@@ -1,15 +1,15 @@
 section     .text
 
-global      ft_read
+global      _ft_read
 
-ft_read:
+_ft_read:
     cmp     rdx, 0
     jbe     size_error
     cmp     rdi, 0
     jbe     read_error
     cmp     rsi, 0
     je      read_error
-    mov     rax, 0      ;using mac "mov     rax, 0x2000003"
+    mov     rax, 0x2000003      ;using mac "mov     rax, 0x2000003"
     syscall
     ret
 

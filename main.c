@@ -6,7 +6,7 @@
 /*   By: kmin <kmin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/26 17:59:27 by kmin              #+#    #+#             */
-/*   Updated: 2020/06/03 15:03:51 by kmin             ###   ########.fr       */
+/*   Updated: 2020/06/03 20:03:50 by kmin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ int     ft_strlen(const char *str);
 char    *ft_strcpy(const char *dest, const char *src);
 char    *ft_strdup(const char *str);
 int ft_strcmp(const char *s1, const char *s2);
-__ssize_t   ft_write(int fd, const void *buf, size_t count);
-__ssize_t   ft_read(int fd, void *buf, size_t count);
+ssize_t   ft_write(int fd, const void *buf, size_t count);
+ssize_t   ft_read(int fd, void *buf, size_t count);
 void        ft_list_push_front(t_list **begin_list, void *data);
 int         ft_list_size(t_list *begin_list);
-void        ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)(), void (*free_fct)(void *));
+//void        ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)(), void (*free_fct)(void *));
 
 
 int main(void)
@@ -91,7 +91,7 @@ int main(void)
         tmp = tmp->next;
     }
     printf("%d\n",ft_list_size(n1));
-    ft_list_remove_if(&n1, &data_ref, compar, free_fct);
+  //  ft_list_remove_if(&n1, &data_ref, compar, free_fct);
     t_list *tmp2 = n1;
     while (tmp2)
     {

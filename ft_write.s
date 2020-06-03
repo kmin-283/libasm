@@ -1,22 +1,34 @@
 section     .text
 
-global      ft_write
+global      _ft_write
 
-ft_write:
+_ft_write:
     cmp     rdx, 0
-    jbe     size_error
+    jb		size_error
     cmp     rdi, 0
-    jbe     write_error
+    jb		write_error
     cmp     rsi, 0
     je      write_error
-    mov     rax, 1      ;on mac "mov rax, 0x2000004"
+	push	rsi
+	push	rdx
+	mov		rsi, 0
+	mov		rax, 0x20000BD		;syscall fstat, check for fd is valid
+	syscall
+	pop		rdx
+	pop		rsi
+	cmp		rax, 9
+	je		write_error
+    mov     rax, 0x2000004      ;on mac "mov rax, 0x2000004"
     syscall
-    ret
+	jmp		end
 
 write_error:
     mov     rax, -1
-    ret
+    jmp		end
 
 size_error:
     mov     rax, 0
-    ret
+	jmp		end
+
+end:
+	ret

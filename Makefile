@@ -2,7 +2,7 @@ NAME = libasm.a
 
 NA	= nasm
 
-NA_FLAG	= -f elf64
+NA_FLAG	= -f macho64
 
 FLAGS 	= -Wall -Werror -Wextra
 
@@ -14,7 +14,6 @@ SCRS =	ft_strlen.s\
 		ft_strdup.s\
 		ft_list_push_front.s\
 		ft_list_size.s\
-		ft_list_remove_if.s
 
 OBJS = $(SCRS:.s=.o)
 

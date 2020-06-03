@@ -1,15 +1,15 @@
 section     .text
 
-global      ft_list_push_front
+global      _ft_list_push_front
 
-extern      malloc
+extern      _malloc
 
-ft_list_push_front:
+_ft_list_push_front:
     push    rdi
     push    rsi
     mov     rdi, 16
     xor     rax, rax
-    call    malloc
+    call    _malloc
     cmp     rax, 0
     je      end
     pop     rsi
